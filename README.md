@@ -42,56 +42,6 @@ This project is dependent on the following packages:
 - The official RPi camera module is supported through `Picamera2`.
 
 
-## 3. What's in this repository
-Currently, the following applications are implemented:
-
-- `src/camera-test`: Test if the camera is working
-- `src/motion-detection`: Detect any motion in the frame
-- `src/object-tracking-color`: Object detection & tracking based on color
-- `src/object-tracking-shape`: Object detection & tracking based on shape
-- `src/object-tracking-feature`: Object detection & tracking based on features using ORB
-- `src/face-detection`: Face detection & tracking
-- `src/object-detection-yolo`: Object detection using YOLO (RPi 3/4/5 only)
-- `src/object-detection-tflite`: Object detection using TensorFlow Lite (RPi 3/4/5 only)
-
-
-### 3.1. Camera Test
-Test the RPi and OpenCV environment. You are expected to see a pop-up window that has video streams from your USB camera if everything is set up correctly. If the window does not appear, you need to check both of (1) your environment; (2) camera connection.
-
-![alt text](./images/cv_camera_test.png)
-
-### 3.2. Motion Detection
-Detect object movements in the image and print a warning message if any movement is detected. This detection is based on the mean squared error (MSE) of the difference between two images.
-
-![alt text](./images/cv_motion_detection.png)
-
-### 3.3. Color-based Object Detection and Tracking
-Track an object based on its color in HSV and print its center position. You can choose your own color by clicking on the object of interest. Click multiple times on different points so a full color space is coveraged. You can hard code the parameters so you don't need to pick them again for the next run. The following demo shows how I track a Nintendo game controller in real-time:
-
-![alt text](./images/cv_object_tracking_color.png)
-
-### 3.4. Shape-based Object Detection and Tracking
-Detect and track round objects using HoughCircles().
-Support of squares is coming soon.
-
-![alt text](./images/cv_object_tracking_shape.png)
-
-### 3.5. Feature-based Object Detection and Tracking (with ORB)
-Detect and track an object using its feature. The algorithm I selected here is ORB (Oriented FAST and Rotated BRIEF) for its fast calculation speed to enable real-time detection. To use the example, please prepare an Arduino UNO board in hand (or replace the `simple.png`).
-
-![alt text](./images/cv_orb.png)
-
-### 3.6. Face Detection and Tracking
-Detecting face using Harr Cascade detector.
-
-![cv_face-detection](images/cv_face-detection.png)
-
-### 3.7. Object Detection using YOLO
-Use YOLO (You Only Look Once) for object detection.  
-Note this code is based on Ultralytics YOLO. The instruction can be found at their website: [Quick Start Guide: Raspberry Pi with Ultralytics YOLO11](https://docs.ultralytics.com/guides/raspberry-pi/). Double check if you need to use it in a commercialised project! 
-
-### 3.8. Object Detection using Neural Network (TensorFlow Lite)
-Use TensorFlow Lite to recognise objects.
 
 To use it, download the model and labels into the module directory:
 ```
