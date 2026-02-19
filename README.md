@@ -1,4 +1,6 @@
-Real-Time Road Anomaly Detection System
+# Real-Time Road Anomaly Detection System
+
+
 📌 Project Description
 This project focuses on the development of an IoT-driven Smart Dashcam designed to detect road anomalies such as potholes and speed bumps in real-time. Utilizing a Raspberry Pi 4, the system processes live video feed from the road to identify damage, enabling safer navigation and providing data for urban road maintenance, specifically tailored for high-traffic environments like Bengaluru.
 
