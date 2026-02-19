@@ -35,7 +35,39 @@ The system is configured for **"Headless" operation**, allowing it to be control
 
 ### 1. Environment Preparation
 Once logged into the Pi via SSH, run the following to install dependencies:
-```bash
+
 sudo apt update && sudo apt upgrade -y
 sudo apt install python3-opencv python3-pip -y
 pip3 install tflite-runtime numpy
+2. Manual Execution
+To run the detection system manually:
+
+Bash
+cd ~/road_anomaly_project
+python3 main_detection.py
+3. Automated Deployment (Production)
+To ensure the dashcam starts working the moment the vehicle is powered on, the script is deployed as a Systemd Service:
+
+Create a service file: sudo nano /etc/systemd/system/road_detector.service
+
+Enable and start the service:
+
+Bash
+sudo systemctl daemon-reload
+sudo systemctl enable road_detector.service
+sudo systemctl start road_detector.service
+📊 Methodology
+Data Acquisition: Live frames are captured by the Pi Camera.
+
+Preprocessing: Frames are resized and converted to grayscale/RGB using OpenCV.
+
+Inference: The TensorFlow Lite model analyzes the frames for anomaly patterns.
+
+Logging: Anomalies are logged with a local timestamp for further review.
+
+📂 Repository Structure
+/Documentation: Project reports and architecture diagrams.
+
+/Hardware: Circuit diagrams and component specifications.
+
+/Media: Demo videos and setup photos.
